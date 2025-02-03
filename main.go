@@ -28,7 +28,7 @@ func performLookup(ip net.IP, results chan<- string, retryCount int) {
 }
 
 func main() {
-    fmt.Println(color.BlueString("Staring Scan"))
+    fmt.Println(color.BlueString("Starting Scan"))
     fmt.Println(color.BlueString("------------"))
     var inputFlag string
     flag.StringVar(&inputFlag, "subnet", "", "Input to scan, CIDR notation (e.g., 10.5.0.0/24) or wildcard (e.g., 10.5.0.*)")
