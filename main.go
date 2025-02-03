@@ -8,6 +8,7 @@ import (
     "strings"
     "sync"
     "time"
+    "github.com/fatih/color"
 )
 
 func performLookup(ip net.IP, results chan<- string, retryCount int) {
@@ -22,11 +23,13 @@ func performLookup(ip net.IP, results chan<- string, retryCount int) {
     }
 
     if err == nil && len(names) > 0 {
-        fmt.Println(ip.String() + "," + names[0])
+        fmt.Println(color.GreenString(ip.String()) + "," + names[0])
     }
 }
 
 func main() {
+    fmt.Println(color.BlueString("Staring Scan"))
+    fmt.Println(color.BlueString("------------"))
     var inputFlag string
     flag.StringVar(&inputFlag, "subnet", "", "Input to scan, CIDR notation (e.g., 10.5.0.0/24) or wildcard (e.g., 10.5.0.*)")
     flag.Parse()
